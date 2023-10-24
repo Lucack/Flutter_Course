@@ -1,5 +1,7 @@
-soma(int a,int b){
-  print(a+b);
+import 'pessoa.dart';
+
+soma(int a, int b) {
+  print(a + b);
 }
 
 main() {
@@ -7,12 +9,12 @@ main() {
   int a = 3;
   double b = 5.1;
   var c = "Teste de String";
-  
+
   // Bool
   bool estaChovendo = true;
   bool estaFrio = false;
   print(estaChovendo & estaFrio);
-  
+
   // Listas
   var nomes = ['Ana', 'Bia', 'Carlos'];
   nomes.add('Daniel');
@@ -21,10 +23,10 @@ main() {
   print(nomes[0]);
 
   // Set - sem repetição
-  var conjunto = {0,1,2,3,4,4,4,4,4,4,4};
+  var conjunto = {0, 1, 2, 3, 4, 4, 4, 4, 4, 4, 4};
   print(conjunto.length); // Retorna 5
   print(conjunto is Set); // Retorna True
-  
+
   // Map
   Map<String, double> notasAlunos = {
     'Ana': 9.7,
@@ -32,15 +34,15 @@ main() {
     'Carlos': 7.8,
   };
   print('');
-  for (var chave in notasAlunos.keys){
+  for (var chave in notasAlunos.keys) {
     print('chave = $chave');
   }
   print('');
-  for (var valor in notasAlunos.values){
+  for (var valor in notasAlunos.values) {
     print('valor = $valor');
   }
   print('');
- for (var registro in notasAlunos.entries){
+  for (var registro in notasAlunos.entries) {
     print('${registro.key} = ${registro.value}');
   }
 
@@ -59,7 +61,10 @@ main() {
   print(f);
 
   // Funções
-  soma(2,3);
+  soma(2, 3);
 
-
+  var p1 = Pessoa();
+  p1.nome = "João";
+  // p1._cpf = "132.453.783-56";
+  print("O ${p1.nome} tem CPF: ???");
 }
