@@ -13,37 +13,50 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Stack(
-            alignment: AlignmentDirectional.center ,
-            children: [
-              Container(color: Colors.amber,height: 200, width: 200),
-              Container(color: Colors.blue,height: 150, width: 150),
-            ],
-          ),
-          Stack(
-            alignment: AlignmentDirectional.center ,
-            children: [
-              Container(color: Colors.blue,height: 200, width: 200),
-              Container(color: Colors.amber,height: 150, width: 150),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(color: Colors.pinkAccent,height: 100, width: 100),
-              Container(color: Colors.cyanAccent,height: 100, width: 100),
-              Container(color: Colors.amberAccent,height: 100, width: 100),
-            ],
-          )
-        ],
+      home: Container(
+        color: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Stack(
+              alignment: AlignmentDirectional.center,
+              children: [
+                Container(color: Colors.greenAccent, height: 200, width: 200),
+                Container(color: Colors.blue, height: 150, width: 150),
+              ],
+            ),
+            Stack(
+              alignment: AlignmentDirectional.center,
+              children: [
+                Container(color: Colors.blue, height: 200, width: 200),
+                Container(color: Colors.amber, height: 150, width: 150),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(color: Colors.pinkAccent, height: 100, width: 100),
+                Container(color: Colors.cyanAccent, height: 100, width: 100),
+                Container(color: Colors.amberAccent, height: 100, width: 100),
+              ],
+            ),
+            Container(
+              color: Colors.amber,
+              height: 30,
+              width: 300,
+              child: Text('Diamante Amarelo',
+                  style: TextStyle(color: Colors.black, fontSize: 28),
+                  textAlign: TextAlign.center),
+            ),
+            ElevatedButton(onPressed: () {
+              print('Você apertou o Botão');}
+            , child: Text('Aperte o Botão'))
+          ],
+        ),
       ),
     );
   }
