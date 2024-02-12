@@ -1,4 +1,5 @@
 import 'package:first_project/components/difficulty.dart';
+import 'package:first_project/data/task_dao.dart';
 import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
@@ -14,10 +15,8 @@ class Task extends StatefulWidget {
 }
 
 class _TaskState extends State<Task> {
-
-
-  bool assetOrNetwork(){
-    if(widget.foto.contains('http')) {}
+  bool assetOrNetwork() {
+    if (widget.foto.contains('http')) {}
     return true;
   }
 
@@ -52,7 +51,8 @@ class _TaskState extends State<Task> {
                         height: 100,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(4),
-                          child: Image.network(widget.foto,
+                          child: Image.network(
+                            widget.foto,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -69,13 +69,19 @@ class _TaskState extends State<Task> {
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                          Difficulty(difficultyLevel: widget.difficulty,)
+                          Difficulty(
+                            difficultyLevel: widget.difficulty,
+                          )
                         ],
                       ),
                       SizedBox(
                         height: 80,
                         width: 70,
                         child: ElevatedButton(
+                            onLongPress: () {
+                              TaskDao().delete(widget.nome);
+
+                            },
                             onPressed: () {
                               setState(() {
                                 widget.nivel++;
@@ -83,9 +89,9 @@ class _TaskState extends State<Task> {
                             },
                             style: ButtonStyle(
                                 backgroundColor:
-                                MaterialStateProperty.all(Colors.cyan),
+                                    MaterialStateProperty.all(Colors.cyan),
                                 foregroundColor:
-                                MaterialStateProperty.all(Colors.white)),
+                                    MaterialStateProperty.all(Colors.white)),
                             child: const Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -107,8 +113,9 @@ class _TaskState extends State<Task> {
                         width: 200,
                         child: LinearProgressIndicator(
                           color: Colors.white,
-                          value:
-                          (widget.difficulty > 0) ? (widget.nivel / 4) / 10 : 1,
+                          value: (widget.difficulty > 0)
+                              ? (widget.nivel / 4) / 10
+                              : 1,
                         ),
                       ),
                     ),
@@ -116,7 +123,8 @@ class _TaskState extends State<Task> {
                       padding: const EdgeInsets.all(8),
                       child: Text(
                         'Nivel ${widget.nivel}',
-                        style: const TextStyle(color: Colors.white, fontSize: 18),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ],
@@ -129,5 +137,3 @@ class _TaskState extends State<Task> {
     );
   }
 }
-
-

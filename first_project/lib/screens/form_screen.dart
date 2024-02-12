@@ -1,3 +1,5 @@
+import 'package:first_project/components/task.dart';
+import 'package:first_project/data/task_dao.dart';
 import 'package:first_project/data/task_inherieted.dart';
 import 'package:flutter/material.dart';
 
@@ -134,10 +136,10 @@ class _FormScreenState extends State<FormScreen> {
                   ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          TaskInherited.of(widget.taskContext).newTask(
+                          TaskDao().save(Task(
                               nameControler.text,
                               imageControler.text,
-                              int.parse(difficultyControler.text));
+                              int.parse(difficultyControler.text)));
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(
                             content: Text('Criando nova Tarefa!'),
